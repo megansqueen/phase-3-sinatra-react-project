@@ -52,12 +52,11 @@ set :default_content_type, 'application/json'
   end
 
   post '/rides/:id/reviews' do
-    review = Review.create([
+    review = Review.create(
       writer: params[:writer],
       body: params[:body],
-      ride_id: params[:ride_id],
-      created_at: params[:created_at]
-  ])
+      ride_id: params[:id]
+  )
     review.to_json
   end
 
