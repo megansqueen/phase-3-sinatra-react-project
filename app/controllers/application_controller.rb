@@ -21,9 +21,7 @@ set :default_content_type, 'application/json'
   patch '/rides/:id' do
     ride = Ride.find(params[:id])
     ride.update(
-      image: params[:image],
-      name: params[:name],
-      park: params[:park]
+      image: params[:image]
     )
     ride.to_json(include: :reviews)
   end
